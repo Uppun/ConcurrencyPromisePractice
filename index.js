@@ -1,12 +1,12 @@
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 function MainTask(number, SidePromises) {
-    console.log('wot')
     if (number === 0) {
         return;
     }
 
     return wait(10 * 1000).then(() => {
+        console.log(`A main task was done in 10000 ms.`)
         for (let i = number; i > 0; i--) {
             SidePromises.push(SideTask(i*2*10000));
         }
